@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, abort
 
 app = Flask(__name__)
 navigation = ['MiriamPi', 'EyeCam', 'WhiteNoise', 'Music']
-activeTab = navigation(0)
+activeTab = navigation[0]
 
 
 @app.route("/")
@@ -11,7 +11,7 @@ def landing():
 
 
 @app.route("/Tab/<nav>")
-def navTab(nav='MiriamPi'):
+def navTab(nav):
     activeTab = nav
     return redirect("/")
 
