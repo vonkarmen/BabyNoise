@@ -2,10 +2,35 @@
 {% block title %}-Music{% endblock title %}
 
 {% block tabContent %}
-    <div id="Music" class="w3-container w3-border w3-light-grey tab">
-        <h2>Music Player</h2>
-        <div class="w3-panel w3-sand w3-leftbar w3-border-teal">
-            <p>Controls for music player go here</p>
+    <div class="w3-cell-row tab">
+        <div class='w3-bar-block w3-card w3-teal w3-cell' style='width: 120px'>
+            <h3 class='w3-bar-item'>Playlists</h3>
+            {%- for item in playlistnames %}
+            <button name='{{ item }}' class='w3-bar-item w3-button listlink' onclick='loadSongs(event, "{{ item }}")'>{{ item }}</button>
+            {%- endfor %}
+            <button class='w3-bar-item w3-button uploadlink' onclick='sendPlaylist(event, "new")'>-new-</button>
+        </div>
+
+        <div id="Music" class="w3-container w3-border w3-light-grey w3-cell" style='margin-left:120px'>
+            <h2>Music Player</h2>
+            <div class="w3-panel w3-sand w3-leftbar w3-border-teal">
+                <p id='test'>Controls for music player go here</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        function loadSongs(evt, listName) {
+            var i, x, listlinks;
+            listlinks = document.getElementsByClassName('listlink');
+            for (i = 0; i < listlinks.length; i++) {
+                listlinks[i].className = listlinks[i].className.replace(" w3-grey", "");
+            }
+            evt.currentTarget.className += " w3-grey";
+            document.getElementById('test').innerHTML = 'You selected the ' + listName + ' playlist!';
+        }
+        function sendPlaylist(event, name) {
+            document.getElementById('test').innerHTML = 'make a new playlist!';
+        }
+    </script>
 {% endblock tabContent %}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>MiraiamPi{% block title %}{% endblock title %}</title>
+    <title>MiriamPi{% block title %}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -12,6 +12,8 @@
     {%- for item in navigation %}
         <a href="/Tab/{{ item }}" class="w3-bar-item w3-button w3-medium{% if activeTab == item %} w3-grey{% endif %}">{{ item }}</a>
     {%- endfor %}
+    {%- block contextMenu %}
+    {%- endblock contextMenu %}
     </div>
 
     {%- block tabContent %}
@@ -21,7 +23,7 @@
     </div>
     {%- endblock tabContent %}
 
-    <div class="w3-container w3-teal">
+    <div class="w3-container w3-teal" style="position: -webkit-sticky position: sticky bottom: 0">
         <p>Created by Kevin VanDyk &copy;2017</p>
     </div>
 
