@@ -9,6 +9,7 @@ Project based off of https://jrowberg.io/2015/09/07/raspberry-pi-baby-white-nois
 -https://github.com/MusicPlayerDaemon/mpc - mpc source - not using mpc, instead writing own client:
 -http://pythonhosted.org/python-mpd2/topics/commands.html - python-mpd2 reference
 -https://github.com/hbenl/mpc-js-node - javascript mpd client lib
+-https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
 ###Extending functionality
 -https://www.youtube.com/watch?v=7jJfuP7YgPA - IR filter removal for ps3Eye
