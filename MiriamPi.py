@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, abort
+from flask import Flask, render_template, request, Response, redirect, url_for, abort
 from mpdPlayer import mpdPlayer
 
 # test
@@ -11,6 +11,7 @@ mpdHost, mpdPort = '192.168.2.118', 6600
 
 app = Flask(__name__)
 Music = mpdPlayer(mpdHost, mpdPort)
+Music.Reset()
 navigation = ['MiriamPi', 'EyeCam', 'WhiteNoise', 'Music']
 template_data = {'navigation': navigation}
 
@@ -29,6 +30,12 @@ def landing(activeTab='MiriamPi'):
 @app.route("/Tab/<nav>")
 def navTab(nav):
     return redirect("/" + nav)
+
+
+@app.route("/Play/<listName>")
+def startPlay(listName):
+    Music.PlaylistPlay(listName)
+    return Response('OK', mimetype="text/plain"), 204
 
 
 if __name__ == "__main__":

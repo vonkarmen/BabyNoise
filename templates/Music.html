@@ -28,6 +28,7 @@
             }
             evt.currentTarget.className += " w3-grey";
             document.getElementById('test').innerHTML = 'You selected the ' + listName + ' playlist!';
+            document.getElementById('test').innerHTML += '<a href="/Play/' + listName + '" class="w3-button w3-teal">Play</a>';
         }
         function sendPlaylist(event, name) {
             document.getElementById('test').innerHTML = 'make a new playlist!';

@@ -9,6 +9,11 @@ class mpdPlayer(MPDClient):
         self.connect(address, port)
         print('connected to mpd at ' + address + ':' + str(port))
 
+    def Reset(self):
+        self.stop()
+        self.clear()
+        print('mpd player ready')
+
     def AddSongs(self, playlist, fnames):
         """Adds list of song files to playlist and saves playlist"""
         for f in fnames:
@@ -61,7 +66,7 @@ if __name__ == '__main__':
     # reset mpd state for testing
     MusicPlayer.stop()
     MusicPlayer.clear()
-    #MusicPlayer.rm('testing2')
+    # MusicPlayer.rm('testing2')
 
     # add some songs to a playlist
     lnewlist = MusicPlayer.AddSongs('testing2', songAdd)
