@@ -11,6 +11,8 @@ Using Flask and MPD
 - https://github.com/hbenl/mpc-js-node - javascript mpd client lib
 - https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 - https://stackoverflow.com/questions/13386681/streaming-data-with-python-and-flask - stream data using flask
+- https://github.com/miguelgrinberg/oreilly-flask-apis-video - source for api dev with flask
+- https://developer.amazon.com/alexa-voice-service - amazon alexa voice service api
 
 ### Extending functionality
 -https://www.youtube.com/watch?v=7jJfuP7YgPA - IR filter removal for ps3Eye
@@ -23,9 +25,9 @@ Built for Rasbian Jessie - raspberrypi.org
 
 ### Requirements
 needs mpd, mpc, python-mpd2, and Flask:
-    sudo apt-get install mpd mpc
-    sudo pip install flask
-    sudo pip install python-mpd2
+''' sudo apt-get install mpd mpc
+''' sudo pip install flask
+''' sudo pip install python-mpd2
 
 ## Concept
 web server running on rPi allows music and white noise to be played from rPi, camera feed is displayed on webpage, as well as controls and info from music player.
