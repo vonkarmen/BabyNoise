@@ -16,6 +16,10 @@
             <div class="w3-panel w3-sand w3-leftbar w3-border-teal">
                 <p id='test'>Controls for music player go here</p>
             </div>
+            <div id='nowPlaying' class="w3-panel w3-sand w3-leftbar w3-border-teal">
+                <h4 id='songInfo'></h4>
+                <p id='songTimer'></p>
+            </div>
         </div>
     </div>
 
@@ -33,5 +37,17 @@
         function sendPlaylist(event, name) {
             document.getElementById('test').innerHTML = 'make a new playlist!';
         }
+
+    </script>
+    <script>
+        var evSource = New EventSource('/Music/NowPlaying');
+        evSource.addEventListener('newSong', function(e) {
+            var outContainer = document.getElementById('songInfo');
+            outContainer.innerHTML = e.data;
+        }, false);
+        evSource.addEventListener('songTimer', function(e) {
+            var outContainer = document.getElementById('songTime');
+            outContainer.innerHTML = e.data;
+        }, false);
     </script>
 {% endblock tabContent %}

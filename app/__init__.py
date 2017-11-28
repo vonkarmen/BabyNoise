@@ -1,8 +1,8 @@
 from flask import Flask
-from flask_mpdPlayer import mpdPlayer
+from flask_mpdPlayer import PersistentMPDClient
 
 app = Flask(__name__)
 app.config.from_object('config')
-music = mpdPlayer(app)
+music = PersistentMPDClient(app)
 
 from app import views
